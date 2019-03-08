@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Cambiar contraseña</ion-title>
+    <ion-buttons slot="secondary">
+
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="credentials" (ngSubmit)="change()">
+    <ion-item>
+      <ion-label position="floating">Contraseña actual</ion-label>
+      <ion-input [type]="hide1 ? 'password' : 'text'" formControlName="password"></ion-input>
+      <ion-icon slot="end" name="{{hide1 ? 'eye-off' : 'eye'}}" (click)="hide1 = !hide1"></ion-icon>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Contraseña nueva</ion-label>
+      <ion-input [type]="hide2 ? 'password' : 'text'" formControlName="password1"></ion-input>
+      <ion-icon slot="end" name="{{hide2 ? 'eye-off' : 'eye'}}" (click)="hide2 = !hide2"></ion-icon>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Confirmación contraseña nueva</ion-label>
+      <ion-input [type]="hide3 ? 'password' : 'text'" formControlName="password2"></ion-input>
+      <ion-icon slot="end" name="{{hide3 ? 'eye-off' : 'eye'}}" (click)="hide3 = !hide3"></ion-icon>
+    </ion-item>
+
+    <ion-spinner *ngIf="showSpinner" style="margin:0 auto;width: 100%;"></ion-spinner>
+    <ion-button ion-button type="submit" expand="block" [disabled]="!credentials.valid" *ngIf="!showSpinner">Cambiar
+    </ion-button>
+  </form>
+</ion-content>

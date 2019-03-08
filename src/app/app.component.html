@@ -1,3 +1,55 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-split-pane>
+    <ion-menu menuId="myMenu">
+      <ion-header>
+        <ion-toolbar>
+
+          <ion-title>Menu</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item style="cursor:pointer;" routerLink="/tabs">
+              <ion-label>Inicio</ion-label>
+              <ion-button fill="clear" slot="end">
+                <ion-icon slot="icon-only" name="home" color="dark"></ion-icon>
+              </ion-button>
+            </ion-item>
+          </ion-menu-toggle>
+
+          <ion-menu-toggle auto-hide="false">
+            <ion-item style="cursor:pointer;" routerLink="/report">
+              <ion-label>Reporte</ion-label>
+              <ion-button fill="clear" slot="end">
+                <ion-icon slot="icon-only" name="list-box" color="dark"></ion-icon>
+              </ion-button>
+            </ion-item>
+          </ion-menu-toggle>
+
+
+          <ion-menu-toggle auto-hide="false">
+            <ion-item style="cursor:pointer;" routerLink="/change">
+              <ion-label>Cambiar contraseña</ion-label>
+              <ion-button fill="clear" slot="end">
+                <ion-icon slot="icon-only" name="key" color="dark"></ion-icon>
+              </ion-button>
+            </ion-item>
+          </ion-menu-toggle>
+
+          <ion-menu-toggle auto-hide="false">
+            <ion-item (click)="cerrar()" style="cursor:pointer;">
+              <ion-label>Salir</ion-label>
+              <ion-button fill="clear" slot="end">
+                <ion-icon slot="icon-only" name="log-out" color="dark"></ion-icon>
+              </ion-button>
+            </ion-item>
+          </ion-menu-toggle>
+
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet main></ion-router-outlet>
+  </ion-split-pane>
+
 </ion-app>

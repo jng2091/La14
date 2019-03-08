@@ -1,9 +1,30 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab Three
+      Gestionadas
     </ion-title>
+    <ion-buttons slot="secondary">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+
+  <ion-list>
+    <ion-item *ngFor="let s of solicitudes.gestionadas">
+      <div>
+        <p>{{s.id}}<br>
+          <b>{{s.nombreCliente}} {{s.apellidoCliente}}</b><br>
+          {{s.tipoIdentificacion}} {{s.identificacion}}<br>
+          {{s.caja}}<br>
+          {{s.fechaControl}}<br>
+          {{s.gestion}}
+        </p>
+
+      </div>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>

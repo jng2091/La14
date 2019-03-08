@@ -1,9 +1,53 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab Two
+      Tomadas
     </ion-title>
+
+    <!-- <ion-buttons slot="start">
+      <ion-icon slot="icon-only" name="cube" color="dark"></ion-icon>
+    </ion-buttons> -->
+
+    <ion-buttons slot="secondary">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+
+
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+
+  <ion-list>
+
+    <ion-item *ngFor="let s of solicitudes.tomadas">
+
+      <div style="width:100%;">
+        <p>{{s.id}}<br>
+          <b>{{s.nombreCliente}} {{s.apellidoCliente}}</b><br>
+          {{s.tipoIdentificacion}} {{s.identificacion}}<br>
+          {{s.caja}}<br>
+          {{s.fechaControl}}</p>
+        <ion-select placeholder="Seleccione" [(ngModel)]="s.gestion">
+          <ion-select-option *ngFor="let g of s.gestiones" [value]="g.value">{{g.text}}</ion-select-option>
+        </ion-select>
+      </div>
+
+      <ion-button fill="clear" (click)="save(s)" slot="end" *ngIf="show">
+        <ion-icon slot="icon-only" name="save" color="dark"></ion-icon>
+      </ion-button>
+
+
+
+    </ion-item>
+
+
+    <!-- <ion-button fill="clear" (click)="save(s)">
+        <ion-icon slot="icon-only" name="save" color="dark"></ion-icon>
+      </ion-button> -->
+
+
+  </ion-list>
+
+
+</ion-content>

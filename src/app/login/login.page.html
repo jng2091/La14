@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="credentials" (ngSubmit)="logForm()">
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input formControlName="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input [type]="hide1 ? 'password' : 'text'" formControlName="password"></ion-input>
+      <ion-icon slot="end" name="{{hide1 ? 'eye-off' : 'eye'}}" (click)="hide1 = !hide1"></ion-icon>
+    </ion-item>
+    <ion-spinner *ngIf="showSpinner" style="margin:0 auto;width: 100%;"></ion-spinner>
+    <ion-button ion-button type="submit" expand="block" [disabled]="!credentials.valid" *ngIf="!showSpinner">Login
+    </ion-button>
+  </form>
+</ion-content>

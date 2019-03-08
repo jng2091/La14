@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Reporte</ion-title>
+    <ion-buttons slot="secondary">
+
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-grid *ngIf="gestionesAgrupadas">
+    <ion-row>
+      <ion-col size="5">
+        <b>Gestion</b>
+      </ion-col>
+      <ion-col *ngFor="let i of gestionesAgrupadas[0].indicadores">
+        <b>{{i.mes}}</b>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngFor="let g of gestionesAgrupadas">
+      <ion-col size="5">
+        {{g.gestion}}
+      </ion-col>
+      <ion-col *ngFor="let i of g.indicadores">
+        {{i.cantidad}}
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+</ion-content>
